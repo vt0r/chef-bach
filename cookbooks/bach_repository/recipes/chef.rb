@@ -13,8 +13,8 @@ bins_dir = node['bach']['repository']['bins_directory']
   ],
   [
     'https://opscode-omnibus-packages.s3.amazonaws.com/ubuntu/' \
-      '10.04/x86_64/chef_11.18.12-1_amd64.deb',
-    '2a59c3cd6818f28ba1d946b390d97ce8400b46e7f5c6362cd6202b5e961b5987'
+      '12.04/x86_64/chef_11.12.8-2_amd64.deb',
+    '3da7460e9f03fc5d68baeeb1f50a768f880c4154626aaf78f22dac8a89e64e74'
   ],
   [
     'https://opscode-omnibus-packages.s3.amazonaws.com/ubuntu/' \
