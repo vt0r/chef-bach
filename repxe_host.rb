@@ -253,30 +253,31 @@ end
 
 def refresh_vault_keys
   require 'mixlib/shellout'
-  dbags = Array.new
-  v1 = Mixlib::ShellOut.new('sudo', 'knife',
-                            'data', 'bag', 'list')
-  v1.run_command
-  v1.stdout.split('\n').each do |line|
+  dbags = []
+  list_dbags = Mixlib::ShellOut.new('sudo', 'knife',
+                                    'data', 'bag', 'list')
+  list_dbags.run_command
+  list_dbags.stdout.split('\n').each do |line|
     dbags << line
   end
 
   dbags.each do |dbag|
-    items = Array.new
-    v2 = Mixlib::ShellOut.new('sudo', 'knife',
-                              'data', 'bag', 'show', dbag)
-    v2.run_command
-    v2.stdout.split('\n').each do |line|
+    items = []
+    show_dbag_items = Mixlib::ShellOut.new('sudo', 'knife',
+                                           'data', 'bag', 'show', dbag)
+    show_dbag_items.run_command
+    show_dbag_items.stdout.split('\n').each do |line|
       items << line
     end
 
-    items.delete_if { |i| not i.to_s.end_with?('_keys') }
+    items.delete_unless { |i| i.to_s.end_with?('_keys') }
 
     items.each do |item|
-      v3 = Mixlib::ShellOut.new('sudo', 'knife',
-                                'vault', 'refresh', dbag, item.chomp('_keys'),
-                                '-m', 'client')
-      v3.run_command
+      refresh_vault_item = Mixlib::ShellOut.new('sudo', 'knife',
+                                                'vault', 'refresh', dbag,
+                                                item.chomp('_keys'),
+                                                '-m', 'client')
+      refresh_vault_item.run_command
     end
   end
 end
