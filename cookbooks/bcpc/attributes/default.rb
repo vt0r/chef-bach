@@ -138,8 +138,7 @@ default['bcpc']['repos_for']['precise'].tap do |precise_repos|
     repo[:distribution] = 'HDP'
     repo[:key] = 'hortonworks.key'
     repo[:uri] =
-      'http://s3.amazonaws.com/dev.hortonworks.com/HDP/ubuntu12/2.x/BUILDS/' \
-      '2.3.6.2-3'
+      'http://public-repo-1.hortonworks.com/HDP/ubuntu12/2.x/updates/2.5.5.0'
   end
 
   precise_repos['hdp-utils'].tap do |repo|
@@ -147,7 +146,7 @@ default['bcpc']['repos_for']['precise'].tap do |precise_repos|
     repo[:distribution] = 'HDP-UTILS'
     repo[:key] = 'hortonworks.key'
     repo[:uri] =
-      'http://public-repo-1.hortonworks.com/HDP-UTILS-1.1.0.20/repos/ubuntu12'
+      'http://public-repo-1.hortonworks.com/HDP-UTILS-1.1.0.21/repos/ubuntu12'
   end
 
   precise_repos['cobbler26'].tap do |repo|
@@ -192,8 +191,7 @@ default['bcpc']['repos_for']['trusty'].tap do |trusty_repos|
     repo[:distribution] = 'HDP'
     repo[:key] = 'hortonworks.key'
     repo[:uri] =
-      'http://s3.amazonaws.com/dev.hortonworks.com/HDP/ubuntu14/2.x/BUILDS/' \
-      '2.3.6.2-3'
+      'http://public-repo-1.hortonworks.com/HDP/ubuntu14/2.x/updates/2.5.5.0'
   end
 
   trusty_repos['hdp-utils'].tap do |repo|
@@ -201,7 +199,7 @@ default['bcpc']['repos_for']['trusty'].tap do |trusty_repos|
     repo[:distribution] = 'HDP-UTILS'
     repo[:key] = 'hortonworks.key'
     repo[:uri] =
-      'http://public-repo-1.hortonworks.com/HDP-UTILS-1.1.0.20/repos/ubuntu14'
+      'http://public-repo-1.hortonworks.com/HDP-UTILS-1.1.0.21/repos/ubuntu14'
   end
 
   trusty_repos['cobbler26'].tap do |repo|
